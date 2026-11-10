@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Here To Serve, LLC — Six Website Directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0e0e11;--card:#17171c;--line:#2a2a33;--txt:#f3f1ea;--mute:#9a98a3;--acc:#f5c542;--serif:"Instrument Serif",Georgia,serif;--sans:"Inter Tight",system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font:400 1rem/1.6 var(--sans);-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(ellipse 70% 50% at 50% -10%,rgba(245,197,66,.14),transparent 70%)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1380px;margin:0 auto;padding:0 clamp(16px,3.5vw,48px)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.4rem 0;font-size:.85rem;color:var(--mute);border-bottom:1px solid var(--line)}
+.top b{color:var(--txt);font-weight:600;letter-spacing:.02em}
+.top a:hover{color:var(--acc)}
+.intro{padding:clamp(3rem,8vw,7rem) 0 clamp(2.5rem,5vw,4.5rem);display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:2rem 4rem;align-items:end}
+.intro h1{margin:0;font:400 clamp(3rem,8.4vw,7.6rem)/.95 var(--serif);letter-spacing:-.02em;text-wrap:balance}
+.intro h1 i{color:var(--acc)}
+.intro p{margin:0;color:var(--mute);font-size:1.08rem;max-width:30rem}
+.intro p strong{color:var(--txt);font-weight:500}
+.try{margin-top:1.2rem;display:flex;flex-wrap:wrap;gap:.4rem;font-size:.82rem}
+.try span{padding:.3rem .7rem;border:1px solid var(--line);border-radius:999px;color:var(--txt)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1.2rem,2.4vw,2.2rem);padding-bottom:clamp(3rem,7vw,6rem)}
+.card{display:block;border-radius:22px;background:var(--card);border:1px solid var(--line);overflow:hidden;transition:transform .5s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .5s;animation:in .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i)*.08s)}
+@keyframes in{from{opacity:0;transform:translateY(30px)}}
+.card:hover,.card:focus-visible{transform:translateY(-8px);border-color:var(--c);box-shadow:0 40px 80px -40px var(--c);outline:0}
+.shot{position:relative;aspect-ratio:16/10;overflow:hidden;background:#000;border-bottom:1px solid var(--line)}
+.shot iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform-origin:0 0;pointer-events:none}
+.shot::after{content:"Open design →";position:absolute;right:14px;bottom:14px;font-size:.8rem;font-weight:600;padding:.6rem .95rem;border-radius:999px;background:var(--c);color:var(--on,#111);opacity:0;transform:translateY(8px);transition:.35s}
+.card:hover .shot::after,.card:focus-visible .shot::after{opacity:1;transform:none}
+.info{display:grid;grid-template-columns:auto 1fr auto;gap:.2rem 1.1rem;align-items:start;padding:1.3rem 1.5rem 1.5rem}
+.no{font:400 2.6rem/1 var(--serif);color:var(--c);grid-row:1/3}
+.info h2{margin:0;font:400 clamp(1.6rem,2.6vw,2.2rem)/1.1 var(--serif)}
+.info p{margin:0;grid-column:2/-1;color:var(--mute);font-size:.95rem}
+.sw{display:flex;gap:4px;padding-top:.5rem}.sw i{width:16px;height:16px;border-radius:50%;box-shadow:0 0 0 1px rgba(255,255,255,.18)}
+.tags{grid-column:2/-1;display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.7rem}
+.tags span{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:.2rem .6rem}
+footer{border-top:1px solid var(--line);padding:1.6rem 0 2.4rem;color:var(--mute);font-size:.85rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem}
+@media (max-width:860px){.grid,.intro{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.card{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><b>Here To Serve, LLC</b><span>Website redesign · 6 concepts</span><a href="https://hereserve.com/" target="_blank" rel="noopener">Current site ↗</a></div>
+
+  <section class="intro">
+    <h1>Six ways to say <i>“you’ve been served.”</i></h1>
+    <div>
+      <p><strong>Same business, same content, same coverage search</strong> — six completely different websites. Each one carries every section of hereserve.com: services, coverage area, contact and pay online. Open any of them and try the search:</p>
+      <div class="try"><span>Cooperstown</span><span>13820</span><span>Delaware County</span><span>Albany</span></div>
+    </div>
+  </section>
+
+  <main class="grid" id="grid"></main>
+
+  <footer><span>© 2026 Here To Serve, LLC. All Rights Reserved.</span><span>Content and coverage data live in one file: shared/hts.js</span></footer>
+</div>
+<script>
+const D = [
+  { slug: 'docket', name: 'The Docket', c: '#e5553f', on: '#fff', sw: ['#f1e9d6', '#17130e', '#b3261e'], tags: ['Editorial', 'Light', 'Serif'],
+    d: 'A court-paper broadsheet. Ink on cream, drop caps, dotted-leader town listings, and a rubber stamp that thunks down “Covered” when you search.' },
+  { slug: 'deco', name: 'Courthouse Deco', c: '#d8b25a', sw: ['#070d24', '#14215a', '#d8b25a'], tags: ['Luxury', 'Dark', 'Brand colors'],
+    d: 'Your navy and gold, taken to the grand courthouse lobby. Gold-foil lettering, a turning sunburst, stepped frames and Roman numerals.' },
+  { slug: 'field-unit', name: 'Field Unit', c: '#b6ff3c', sw: ['#040806', '#b6ff3c', '#ff5d3a'], tags: ['Tech', 'Dark', 'Live map'],
+    d: 'Built around the GPS-stamped photo. A terminal-style coverage query wired to a sweeping radar map that pings every town you match.' },
+  { slug: 'hill-country', name: 'Hill Country', c: '#e69a2e', sw: ['#fbf3e2', '#18341f', '#e69a2e'], tags: ['Friendly', 'Light', 'Illustrated'],
+    d: 'Sunrise over the Otsego hills. Parallax ridgelines, warm rounded cards and a neighborly voice — local, approachable, unmistakably upstate.' },
+  { slug: 'grotesk', name: 'Grotesk', c: '#ff3d14', on: '#fff', sw: ['#f2f1ec', '#0b0b0b', '#ff3d14'], tags: ['Bold', 'Light', 'Typographic'],
+    d: 'No pictures, just conviction. Wall-to-wall type, hard rules, a running marquee, and a search that answers in one enormous word: YES.' },
+  { slug: 'aurora', name: 'Aurora', c: '#8f6bff', on: '#fff', sw: ['#07051a', '#3ef0c8', '#ff5fb7'], tags: ['Modern', 'Dark', 'Glass'],
+    d: 'Drifting northern-lights color behind frosted glass. Bento layout, cursor-lit cards and a command-palette coverage search.' }
+];
+document.getElementById('grid').innerHTML = D.map((s, i) => `
+  <a class="card" href="sites/${s.slug}/index.html" style="--c:${s.c};--on:${s.on || '#111'};--i:${i}">
+    <div class="shot"><iframe src="sites/${s.slug}/index.html" title="${s.name} preview" loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe></div>
+    <div class="info"><span class="no">${String(i + 1).padStart(2, '0')}</span><h2>${s.name}</h2><div class="sw">${s.sw.map((c) => `<i style="background:${c}"></i>`).join('')}</div>
+      <p>${s.d}</p><div class="tags">${s.tags.map((t) => `<span>${t}</span>`).join('')}</div></div>
+  </a>`).join('');
+const fit = () => document.querySelectorAll('.shot').forEach((s) => s.firstElementChild.style.transform = `scale(${s.clientWidth / 1440})`);
+fit(); addEventListener('resize', fit);
+</script>
+</body>
+</html>

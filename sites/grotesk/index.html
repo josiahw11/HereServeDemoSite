@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Here To Serve, LLC — Professional Process Serving</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f1ec;--ink:#0b0b0b;--hot:#ff3d14;--grey:#8b8a84;--f:"Archivo","Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 1.05rem/1.5 var(--f);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}::selection{background:var(--hot);color:#fff}
+.x{font-stretch:62%;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.82}
+.w{font-stretch:125%;font-weight:800;text-transform:uppercase}
+.cap{font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-stretch:110%}
+.pad{padding-inline:clamp(14px,2.4vw,36px)}
+/* nav */
+header{position:sticky;top:0;z-index:40;display:grid;grid-template-columns:auto 1fr auto;align-items:stretch;background:var(--bg);border-bottom:2px solid var(--ink)}
+header>*{display:flex;align-items:center;padding:0 clamp(14px,2.4vw,36px);height:56px}
+.brand{font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:.95rem;border-right:2px solid var(--ink)}
+header nav{gap:clamp(.8rem,2.4vw,2.4rem);justify-content:center}
+header nav a{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;position:relative}
+header nav a::before{content:"";position:absolute;left:-.9em;top:50%;width:.5em;height:.5em;margin-top:-.25em;background:var(--hot);transform:scale(0);transition:transform .2s}header nav a:hover::before{transform:scale(1)}
+.tel{background:var(--ink);color:var(--bg);font-weight:800;font-size:.9rem;transition:background .2s}.tel:hover{background:var(--hot)}
+/* hero */
+.hero{position:relative;min-height:calc(100svh - 58px);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.hero .meta{display:flex;justify-content:space-between;gap:1rem;padding-top:1.2rem}
+.hero h1{margin:0;font-size:clamp(4.4rem,min(28.5vw,38svh),31rem);padding:0 clamp(10px,1.6vw,24px)}
+.hero h1 span{display:block;overflow:hidden}.hero h1 b{display:block;font-weight:inherit;animation:slam .9s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--i)*.1s)}
+@keyframes slam{from{transform:translateY(100%) skewY(6deg)}}
+.hero h1 .o{color:var(--hot)}
+.hero h1 small{display:block;font-size:.13em;letter-spacing:0;line-height:1;margin:0 0 .35em .08em}
+[id]{scroll-margin-top:58px}
+.hero .foot{display:grid;grid-template-columns:1fr auto auto;border-top:2px solid var(--ink)}
+.hero .foot>*{padding:1.3rem clamp(14px,2.4vw,36px);display:flex;align-items:center}
+.hero .foot p{margin:0;font-size:clamp(1.05rem,2vw,1.5rem);font-weight:700;font-stretch:112%}
+.cta{font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:clamp(.85rem,1.3vw,1.1rem);border-left:2px solid var(--ink);gap:.8rem;transition:background .2s,color .2s;cursor:pointer}
+.cta.a{background:var(--hot);color:#fff}.cta:hover{background:var(--ink);color:var(--bg)}
+.cta i{font-style:normal;transition:transform .25s}.cta:hover i{transform:translateX(6px)}
+/* marquee */
+.mq{overflow:hidden;background:var(--ink);color:var(--bg);border-block:2px solid var(--ink);padding:.6rem 0}
+.mq div{display:inline-flex;white-space:nowrap;animation:mq 26s linear infinite;font-size:clamp(1.6rem,4vw,3.2rem)}
+.mq span{padding-right:.6em}.mq span::after{content:"✕";color:var(--hot);padding-left:.6em;font-stretch:100%}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* blocks */
+section.blk{border-bottom:2px solid var(--ink)}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.2fr)}
+.row>.l{border-right:2px solid var(--ink);padding-block:clamp(1.4rem,3vw,2.4rem);display:flex;flex-direction:column;justify-content:space-between;gap:2rem}
+.row>.r{padding-block:clamp(1.4rem,3vw,2.4rem)}
+.l .n{font-size:clamp(4rem,10vw,9rem);color:var(--hot)}
+h2{margin:0;font-size:clamp(2.6rem,7.4vw,7rem)}
+.about p{margin:1.4rem 0 0;font-size:clamp(1.3rem,2.7vw,2.3rem);line-height:1.18;font-weight:600;letter-spacing:-.01em;max-width:24em}
+.about p u{text-decoration:none;background:linear-gradient(var(--hot),var(--hot)) 0 88%/100% .14em no-repeat}
+.nums{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:2px solid var(--ink)}
+.nums>*{padding:1.4rem clamp(14px,2.4vw,36px) 1.6rem;border-right:2px solid var(--ink)}.nums>:last-child{border-right:0}
+.nums b{display:block;font-size:clamp(5rem,15vw,15rem)}
+.nums a{display:flex;flex-direction:column;justify-content:space-between;background:var(--hot);color:#fff;transition:background .2s}.nums a:hover{background:var(--ink)}
+.nums a b{font-size:clamp(2.2rem,5vw,4.6rem)}
+/* services */
+.svc article{display:grid;grid-template-columns:clamp(3.4rem,8vw,7rem) minmax(0,1.5fr) minmax(0,1fr) auto;align-items:center;gap:1rem;padding:clamp(.9rem,1.8vw,1.5rem) clamp(14px,2.4vw,36px);border-top:2px solid var(--ink);position:relative;overflow:hidden;transition:color .3s;isolation:isolate}
+.svc article::before{content:"";position:absolute;inset:0;background:var(--ink);transform:translateY(101%);transition:transform .45s cubic-bezier(.16,1,.3,1);z-index:-1}
+.svc article:hover{color:var(--bg)}.svc article:hover::before{transform:none}
+.svc .no{font-weight:800;font-stretch:125%;color:var(--hot)}
+.svc h3{margin:0;font-size:clamp(1.9rem,5.4vw,5rem);transition:transform .45s cubic-bezier(.16,1,.3,1)}.svc article:hover h3{transform:translateX(1.5vw)}
+.svc p{margin:0;font-weight:600}.svc svg{width:clamp(1.8rem,3.4vw,3rem);height:auto;transition:transform .45s,color .3s}.svc article:hover svg{transform:rotate(-12deg) scale(1.2);color:var(--hot)}
+/* coverage */
+.ask{display:grid;grid-template-columns:1fr auto;border-top:2px solid var(--ink)}
+.ask input{width:100%;min-width:0;border:0;outline:0;background:none;color:var(--ink);font:900 clamp(2rem,7.6vw,7rem)/1 var(--f);font-stretch:62%;text-transform:uppercase;padding:.25em clamp(14px,2.4vw,36px) .18em;caret-color:var(--hot);border-radius:0}
+.ask input::placeholder{color:#cfcdc4}
+.ask:focus-within{background:#fff}
+.ask button{border:0;border-left:2px solid var(--ink);font-family:inherit;font-size:clamp(.9rem,1.6vw,1.3rem);padding-inline:clamp(1rem,3vw,3rem);background:var(--ink);color:var(--bg)}.ask button:hover{background:var(--hot)}
+#cvResult{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 clamp(1rem,3vw,3rem);padding:clamp(.8rem,1.6vw,1.4rem) clamp(14px,2.4vw,36px);border-top:2px solid var(--ink);min-height:clamp(6rem,13vw,11rem);transition:background .25s,color .25s}
+#cvResult.is-yes{background:var(--ink);color:var(--bg)}#cvResult.is-no{background:var(--hot);color:#fff}
+.cv-badge{grid-row:1/3;font-size:0;font-stretch:62%;font-weight:900;line-height:.8}.cv-badge:empty{display:none}
+.is-yes .cv-badge::after{content:"YES.";font-size:clamp(4rem,13vw,11rem);color:var(--hot)}.is-no .cv-badge::after{content:"NO.";font-size:clamp(4rem,13vw,11rem)}
+.cv-badge::after{display:block;animation:slam .5s cubic-bezier(.16,1,.3,1) both}
+.cv-title{align-self:end;font-size:clamp(1.1rem,2.4vw,2rem);font-weight:800;font-stretch:112%;line-height:1.1}
+.is-idle .cv-title{grid-column:1/-1;align-self:center;color:var(--grey);font-weight:600}
+.cv-detail{align-self:start;font-weight:500;margin-top:.3rem}
+#cvList{border-top:2px solid var(--ink)}
+.cv-county{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.2fr);border-bottom:2px solid var(--ink)}.cv-county:last-child{border-bottom:0}
+.cv-county-name{margin:0;padding:1.2rem clamp(14px,2.4vw,36px);border-right:2px solid var(--ink);font-size:clamp(1.6rem,4vw,3.6rem);font-stretch:62%;font-weight:900;text-transform:uppercase;line-height:.9;display:flex;flex-direction:column;justify-content:space-between;gap:1rem}
+.cv-count{font-size:clamp(3rem,8vw,7rem);color:var(--hot)}
+.cv-towns{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));align-content:start}
+.cv-town{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;padding:.75rem 1rem;font-weight:700;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);height:100%;transition:background .15s,color .15s,opacity .25s}
+.cv-zip{font-size:.8rem;font-stretch:110%;color:var(--grey)}
+.cv-town:hover{background:var(--ink);color:var(--bg)}
+.cv-town.is-hit{background:var(--hot);color:#fff}.cv-town.is-hit .cv-zip{color:#fff}.cv-town.is-dim{opacity:.2}
+/* contact + pay */
+.big a,.big div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.2fr);border-top:2px solid var(--ink);transition:background .2s,color .2s}
+.big>:first-child{border-top:0}
+.big span{padding:1rem clamp(14px,2.4vw,36px);border-right:2px solid var(--ink);display:flex;align-items:center}
+.big b{padding:.25em clamp(14px,2.4vw,36px) .18em;font-size:clamp(1.9rem,6.6vw,6.4rem);font-stretch:62%;font-weight:900;text-transform:uppercase;line-height:.95;word-break:break-word}
+.big a:hover{background:var(--hot);color:#fff}
+.pay{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid var(--ink)}
+.pay a{display:flex;flex-direction:column;gap:1rem;padding:1.4rem clamp(14px,2.4vw,36px) 1.6rem;border-right:2px solid var(--ink);min-height:clamp(15rem,26vw,22rem);transition:background .25s,color .25s}.pay a:last-child{border-right:0}
+.pay a:hover{background:var(--ink);color:var(--bg)}.pay a:nth-child(2):hover{background:var(--hot);color:#fff}
+.pay h3{margin:0;font-size:clamp(2.2rem,4.6vw,4.4rem)}.pay p{margin:0;flex:1;font-weight:600;max-width:22em}
+.note{margin:0;padding:1rem clamp(14px,2.4vw,36px);border-top:2px solid var(--ink);background:var(--hot);color:#fff;font-weight:700}
+footer{background:var(--ink);color:var(--bg);padding-bottom:4.5rem}
+footer .name{font-size:clamp(3rem,14.6vw,15.5rem);padding:.12em clamp(10px,1.6vw,24px) 0;white-space:nowrap}
+footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr 1.2fr;gap:1.5rem;padding-block:1.6rem;border-top:2px solid var(--bg)}
+footer h4{margin:0 0 .6rem;color:var(--hot)}footer a{display:block;font-weight:600}footer a:hover{color:var(--hot)}
+@media (max-width:860px){header{grid-template-columns:1fr auto}header nav{display:none}.brand{border-right:0}.row,.cv-county,.big a,.big div{grid-template-columns:1fr}.row>.l,.cv-county-name,.big span{border-right:0;border-bottom:2px solid var(--ink)}
+  .l .n{display:none}.cv-county-name{flex-direction:row;align-items:baseline}.hero .foot{grid-template-columns:1fr}.cta{border-left:0;border-top:2px solid var(--ink)}
+  .nums,.pay{grid-template-columns:1fr}.nums>*,.pay a{border-right:0;border-bottom:2px solid var(--ink);min-height:0}.svc article{grid-template-columns:2.6rem 1fr auto}.svc p{grid-column:2/-1;grid-row:2}footer .cols{grid-template-columns:1fr 1fr}.ask{grid-template-columns:1fr}.ask button{border-left:0;border-top:2px solid var(--ink);padding-block:1rem}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body id="top">
+<header><a class="brand" href="#top">Here To Serve, LLC</a>
+  <nav aria-label="Sections"><a href="#top">Home</a><a href="#services">Services</a><a href="#coverage">Coverage Area</a><a href="#contact">Contact</a><a href="#pay">Pay Online</a></nav>
+  <a class="tel" href="tel:607-434-2052">(607) 434-2052</a></header>
+
+<section class="hero">
+  <div class="meta pad cap"><span>Process Serving &amp; Legal Support</span><span>Oneonta, NY 13820</span><span>20+ Years</span></div>
+  <h1 class="x" aria-label="Professional Process Serving"><small class="w">Professional</small><span style="--i:0"><b>Process</b></span><span style="--i:1"><b class="o">Serving</b></span></h1>
+  <div class="foot"><p>Experienced, Dependable, Prompt</p><a class="cta a" href="#contact">Request Service <i>→</i></a><a class="cta" href="tel:607-434-2052">Call Now: (607) 434-2052 <i>→</i></a></div>
+</section>
+
+<div class="mq x" aria-hidden="true"><div><span>Experienced</span><span>Dependable</span><span>Prompt</span><span>GPS-stamped photos</span><span>Experienced</span><span>Dependable</span><span>Prompt</span><span>GPS-stamped photos</span><span>Experienced</span><span>Dependable</span><span>Prompt</span><span>GPS-stamped photos</span><span>Experienced</span><span>Dependable</span><span>Prompt</span><span>GPS-stamped photos</span></div></div>
+
+<section class="blk" id="about">
+  <div class="row about">
+    <div class="l pad"><span class="cap">About</span><span class="n x">01</span></div>
+    <div class="r pad" data-reveal><h2 class="x">Your Trusted Partner in Legal Support</h2>
+      <p>When you need legal documents served <u>accurately and on time</u>, trust Here To Serve, LLC. I combine deep industry knowledge, the latest technologies including GPS stamped photos, and a commitment to client satisfaction.</p></div>
+  </div>
+  <div class="nums">
+    <div><b class="x" data-count="20" data-suffix="+">20+</b><span class="cap">Years of Experience</span></div>
+    <div><b class="x" data-count="60" data-suffix="k+">60k+</b><span class="cap">Papers Served</span></div>
+    <a href="https://www.google.com/search?q=Here+To+Serve,+LLC+Reviews" target="_blank" rel="noopener"><span class="cap">Google ↗</span><b class="x">Check Out My Reviews</b></a>
+  </div>
+</section>
+
+<section class="blk" id="services">
+  <div class="row">
+    <div class="l pad"><span class="cap">Services Offered</span><span class="n x">02</span></div>
+    <div class="r pad" data-reveal><h2 class="x">My Services</h2><p style="margin:1rem 0 0;font-weight:600;max-width:30em">Comprehensive solutions for your legal document needs. Providing a full range of process serving and legal support services.</p></div>
+  </div>
+  <div class="svc" id="svc"></div>
+</section>
+
+<section class="blk" id="coverage">
+  <div class="row">
+    <div class="l pad"><span class="cap">Coverage Area</span><span class="n x">03</span></div>
+    <div class="r pad" data-reveal><h2 class="x">My Coverage Area</h2><p style="margin:1rem 0 0;font-weight:600;max-width:30em">I proudly serve the following counties, towns, and municipalities.</p></div>
+  </div>
+  <form class="ask" id="cvForm"><input id="cvInput" type="search" autocomplete="off" spellcheck="false" placeholder="Town, county or ZIP" aria-label="Search by town, county, or zip code"><button class="w cta" type="submit">Search <i>→</i></button></form>
+  <div id="cvResult"></div>
+  <div id="cvList"></div>
+</section>
+
+<section class="blk" id="contact">
+  <div class="row">
+    <div class="l pad"><span class="cap">Contact</span><span class="n x">04</span></div>
+    <div class="r pad" data-reveal><h2 class="x">Contact Me</h2><p style="margin:1rem 0 0;font-weight:600">Ready to get started? Reach out today for a free consultation.</p></div>
+  </div>
+  <div class="big" style="border-top:2px solid var(--ink)">
+    <a href="tel:607-434-2052"><span class="cap">Direct Contact</span><b>(607) 434-2052</b></a>
+    <a href="mailto:info@hereserve.com"><span class="cap">Direct Contact</span><b>info@hereserve.com</b></a>
+    <div><span class="cap">Mailing Address</span><b>7 Valleyview Street, Oneonta NY 13820</b></div>
+  </div>
+</section>
+
+<section class="blk" id="pay">
+  <div class="row">
+    <div class="l pad"><span class="cap">Pay Online</span><span class="n x">05</span></div>
+    <div class="r pad" data-reveal><h2 class="x">Pay Online</h2><p style="margin:1rem 0 0;font-weight:600">Securely pay your invoice using one of the options below.</p></div>
+  </div>
+  <div class="pay">
+    <a href="https://www.paypal.com/paypalme/hereserve" target="_blank" rel="noopener"><h3 class="x">Pay with PayPal</h3><p>Click here to pay your invoice securely through the PayPal platform.</p><span class="cap">Proceed to PayPal →</span></a>
+    <a href="https://account.venmo.com/u/hereserve" target="_blank" rel="noopener"><h3 class="x">Pay with Venmo</h3><p>Pay directly from your phone using the Venmo app.</p><span class="cap">Open Venmo →</span></a>
+    <a href="tel:607-434-2052"><h3 class="x">Pay by Debit/Credit</h3><p>To pay by Credit Card over the phone, please call me at (607) 434-2052.</p><span class="cap">Call (607) 434-2052 →</span></a>
+  </div>
+  <p class="note">Please ensure you include your invoice number in the payment description or notes field.</p>
+</section>
+
+<footer>
+  <div class="name x">Here To Serve, LLC</div>
+  <div class="cols pad">
+    <div><h4 class="cap">Here To Serve, LLC</h4>Experienced, Dependable, Prompt</div>
+    <div><h4 class="cap">Quick Links</h4><a href="#top">Home</a><a href="#services">Services</a><a href="#coverage">Coverage Area</a><a href="#contact">Contact</a><a href="#pay">Pay Online</a></div>
+    <div><h4 class="cap">Contact Me</h4>7 Valleyview Street, Oneonta NY 13820<a href="tel:607-434-2052">(607) 434-2052</a><a href="mailto:info@hereserve.com">info@hereserve.com</a></div>
+    <div class="cap" style="align-self:end;text-align:right">© 2026 Here To Serve, LLC. All Rights Reserved.</div>
+  </div>
+</footer>
+<script src="../../shared/hts.js"></script>
+<script>
+HTS.renderServices('#svc', (s, i, n) => `<article><span class="no">${n}</span><h3 class="x">${s.t}</h3><p>${s.d}</p>${s.icon}</article>`);
+HTS.mountCoverage({ form: '#cvForm', input: '#cvInput', result: '#cvResult', list: '#cvList', idle: 'Type a town, county, or ZIP code. Find out if you’re covered.' });
+</script>
+</body>
+</html>
