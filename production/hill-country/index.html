@@ -24,6 +24,7 @@ a{color:inherit;text-decoration:none}
 header{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:40;width:min(1100px,calc(100% - 28px));display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.55rem .6rem .55rem 1.3rem;border-radius:999px;background:rgba(251,243,226,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 40px -12px rgba(24,52,31,.35),0 0 0 1px rgba(24,52,31,.08)}
 .brand{font:800 1.12rem/1 var(--disp);color:var(--forest);white-space:nowrap}
 header nav{display:flex;gap:.2rem}header nav a{font-size:.9rem;font-weight:500;padding:.55rem .85rem;border-radius:999px;transition:background .25s}header nav a:hover{background:rgba(93,128,72,.18)}
+.burger{display:none;position:relative;flex:none;width:44px;height:44px;padding:0;border:0;background:none;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}.burger span{position:absolute;left:11px;right:11px;height:2px;border-radius:2px;background:currentColor;transition:transform .3s,opacity .2s}.burger span:nth-child(1){top:15px}.burger span:nth-child(2){top:21px}.burger span:nth-child(3){top:27px}header.open .burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}header.open .burger span:nth-child(2){opacity:0}header.open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}.nav-call{display:none}
 .call{font-weight:700;font-size:.9rem;padding:.75rem 1.1rem;border-radius:999px;background:var(--forest);color:var(--cream);white-space:nowrap;transition:background .25s}.call:hover{background:var(--rust)}
 /* hero */
 .hero{position:relative;height:100svh;min-height:640px;overflow:hidden;background:linear-gradient(#f7c98b 0%,#fbdcae 34%,#fdeccd 62%,#fbf3e2 100%)}
@@ -109,15 +110,17 @@ footer .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2rem;padding-t
 footer h4{margin:0 0 .7rem;color:var(--amber);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
 footer a{display:block}footer a:hover{color:var(--cream)}footer .brand{color:var(--cream);font-size:1.6rem}
 .end{grid-column:1/-1;border-top:1px solid rgba(169,191,140,.25);padding-top:1.4rem;font-size:.9rem}
-@media (max-width:900px){header nav{display:none}.about{grid-template-columns:1fr}.svc,.contact,.pay{grid-template-columns:1fr 1fr}footer .wrap{grid-template-columns:1fr}}
+@media (max-width:900px){.burger{display:block;color:var(--forest)}header .call{margin-left:auto}header nav{display:none;position:absolute;top:calc(100% + 10px);left:0;right:0;flex-direction:column;gap:.15rem;padding:.7rem;border-radius:26px;background:var(--cream);box-shadow:0 20px 50px -14px rgba(24,52,31,.45),0 0 0 1px rgba(24,52,31,.08)}header.open nav{display:flex}header nav a{padding:.85rem 1.1rem;font-size:1rem}.about{grid-template-columns:1fr}.svc,.contact,.pay{grid-template-columns:1fr 1fr}footer .wrap{grid-template-columns:1fr}}
+@media (max-width:520px){header{padding-right:.35rem}header .call{display:none}.burger{margin-left:auto}header nav .nav-call{display:block;margin-top:.3rem;text-align:center;font-weight:700;background:var(--forest);color:var(--cream)}header nav .nav-call:hover{background:var(--rust)}}
 @media (max-width:600px){.svc,.contact,.pay{grid-template-columns:1fr}.finder .btn{padding:.9rem 1.1rem}.finder svg{display:none}.finder input{padding-left:1rem}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
 <body id="top">
 <header><a class="brand" href="#top">Here To Serve, LLC</a>
-  <nav aria-label="Sections"><a href="#top">Home</a><a href="#services">Services</a><a href="#coverage">Coverage Area</a><a href="#contact">Contact</a><a href="#pay">Pay Online</a></nav>
-  <a class="call" href="tel:607-434-2052">(607) 434-2052</a></header>
+  <nav id="siteNav" aria-label="Sections"><a href="#top">Home</a><a href="#services">Services</a><a href="#coverage">Coverage Area</a><a href="#contact">Contact</a><a href="#pay">Pay Online</a><a class="nav-call" href="tel:607-434-2052">Call (607) 434-2052</a></nav>
+  <a class="call" href="tel:607-434-2052">(607) 434-2052</a>
+  <button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="siteNav"><span></span><span></span><span></span></button></header>
 
 <section class="hero">
   <div class="sun" aria-hidden="true"></div>
@@ -327,6 +330,19 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
   addEventListener('scroll', () => { if (tick) return; tick = true; requestAnimationFrame(() => { const y = Math.min(scrollY, innerHeight);
     layers.forEach((l) => l.style.transform = `translateY(${y * (0.55 - l.dataset.speed)}px)`); sun.style.translate = `0 ${y * .25}px`; tick = false; }); }, { passive: true });
 }
+</script>
+<script>
+/* mobile menu */
+(function(){
+  var h=document.querySelector('header'),b=h&&h.querySelector('.burger');
+  if(!b)return;
+  function set(open){h.classList.toggle('open',open);b.setAttribute('aria-expanded',open?'true':'false');b.setAttribute('aria-label',open?'Close menu':'Menu');}
+  b.addEventListener('click',function(){set(!h.classList.contains('open'));});
+  h.querySelector('nav').addEventListener('click',function(e){if(e.target.closest('a'))set(false);});
+  document.addEventListener('click',function(e){if(!h.contains(e.target))set(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
+  window.addEventListener('resize',function(){if(window.innerWidth>900)set(false);});
+})();
 </script>
 </body>
 </html>

@@ -33,6 +33,7 @@ header nav{display:flex;gap:clamp(.8rem,2.2vw,2rem)}
 header nav a{font:400 .78rem/1 var(--body);letter-spacing:.22em;text-transform:uppercase;padding:.5rem 0;position:relative;color:var(--mute);transition:color .3s}
 header nav a::after{content:"";position:absolute;left:50%;bottom:0;width:0;height:1px;background:var(--gold);transition:.35s}
 header nav a:hover{color:var(--gold2)}header nav a:hover::after{left:0;width:100%}
+.burger{display:none;position:relative;flex:none;width:44px;height:44px;padding:0;border:0;background:none;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}.burger span{position:absolute;left:11px;right:11px;height:2px;border-radius:2px;background:currentColor;transition:transform .3s,opacity .2s}.burger span:nth-child(1){top:15px}.burger span:nth-child(2){top:21px}.burger span:nth-child(3){top:27px}header.open .burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}header.open .burger span:nth-child(2){opacity:0}header.open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}.nav-call{display:none}
 /* hero */
 .hero{position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden;padding:110px 0 80px;
   background:radial-gradient(ellipse 80% 60% at 50% 105%,#24368a 0%,transparent 60%),linear-gradient(#060a1c,#0b143a)}
@@ -121,7 +122,7 @@ footer .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2rem}
 footer h4{margin:0 0 1rem;font:600 .8rem/1 var(--disp);letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
 footer a{display:block;color:var(--mute);transition:color .3s}footer a:hover{color:var(--gold2)}footer p{margin:.4rem 0 0;color:var(--mute)}
 .legal{grid-column:1/-1;text-align:center;font-size:.85rem;letter-spacing:.14em;color:var(--mute);padding-top:2rem;border-top:1px solid rgba(216,178,90,.18)}
-@media (max-width:900px){header nav{display:none}.about{grid-template-columns:1fr;text-align:center}.grid,.contact{grid-template-columns:1fr 1fr}footer .wrap{grid-template-columns:1fr}}
+@media (max-width:900px){.burger{display:block;color:var(--gold);margin-right:-10px}header.open{background:rgba(7,13,36,.97)}header nav{display:none;position:absolute;top:74px;left:0;right:0;flex-direction:column;gap:0;padding:.2rem clamp(16px,4vw,40px) 1.2rem;background:rgba(7,13,36,.97);box-shadow:0 1px 0 rgba(216,178,90,.35),0 30px 40px -20px rgba(0,0,0,.6)}header.open nav{display:flex}header nav a{padding:1.15rem 0;font-size:.85rem;color:var(--cream);border-bottom:1px solid rgba(216,178,90,.16)}header nav a:last-child{border-bottom:0}header nav a::after{display:none}.about{grid-template-columns:1fr;text-align:center}.grid,.contact{grid-template-columns:1fr 1fr}footer .wrap{grid-template-columns:1fr}}
 @media (max-width:600px){.grid,.contact{grid-template-columns:1fr}.search{flex-direction:column}.search button{padding:1.2rem}.revs{flex-direction:column}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
@@ -129,7 +130,8 @@ footer a{display:block;color:var(--mute);transition:color .3s}footer a:hover{col
 <body id="top">
 <header id="hdr"><div class="wrap">
   <a class="brand" href="#top"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4v24M9 28h14M5 9h22M16 4l-2 2h4zM5 9l-3.5 9a3.6 3.6 0 0 0 7 0zM27 9l-3.5 9a3.6 3.6 0 0 0 7 0z"/></svg>Here To Serve, LLC</a>
-  <nav aria-label="Sections"><a href="#top">Home</a><a href="#services">Services</a><a href="#coverage">Coverage Area</a><a href="#contact">Contact</a><a href="#pay">Pay Online</a></nav>
+  <nav id="siteNav" aria-label="Sections"><a href="#top">Home</a><a href="#services">Services</a><a href="#coverage">Coverage Area</a><a href="#contact">Contact</a><a href="#pay">Pay Online</a></nav>
+  <button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="siteNav"><span></span><span></span><span></span></button>
 </div></header>
 
 <section class="hero">
@@ -332,6 +334,19 @@ footer a{display:block;color:var(--mute);transition:color .3s}footer a:hover{col
 
 HTS.mountCoverage({ form: '#cvForm', input: '#cvInput', result: '#cvResult', list: '#cvList' });
 const hdr = document.getElementById('hdr'); addEventListener('scroll', () => hdr.classList.toggle('on', scrollY > 40), { passive: true });
+</script>
+<script>
+/* mobile menu */
+(function(){
+  var h=document.querySelector('header'),b=h&&h.querySelector('.burger');
+  if(!b)return;
+  function set(open){h.classList.toggle('open',open);b.setAttribute('aria-expanded',open?'true':'false');b.setAttribute('aria-label',open?'Close menu':'Menu');}
+  b.addEventListener('click',function(){set(!h.classList.contains('open'));});
+  h.querySelector('nav').addEventListener('click',function(e){if(e.target.closest('a'))set(false);});
+  document.addEventListener('click',function(e){if(!h.contains(e.target))set(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
+  window.addEventListener('resize',function(){if(window.innerWidth>900)set(false);});
+})();
 </script>
 </body>
 </html>
