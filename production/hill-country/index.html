@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Here To Serve, LLC — Professional Process Serving</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600&display=swap" rel="stylesheet">
+<style>
+/* shared behaviour styles */
+.cv-towns{list-style:none;margin:0;padding:0}
+.cv-town{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:pointer;text-align:left;width:100%}
+.js [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js [data-reveal].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js [data-reveal]{opacity:1;transform:none;transition:none}}
+.cv-empty{text-align:center;opacity:.8}
+:root{--cream:#fbf3e2;--sand:#f1e3c6;--forest:#18341f;--pine:#24512f;--moss:#5d8048;--sage:#a9bf8c;--amber:#e69a2e;--rust:#c4552d;--ink:#1c2a1f;--soft:#56655a;
+  --disp:"Fraunces",Georgia,serif;--body:"DM Sans",system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font:400 1.08rem/1.7 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+/* nav */
+header{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:40;width:min(1100px,calc(100% - 28px));display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.55rem .6rem .55rem 1.3rem;border-radius:999px;background:rgba(251,243,226,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 40px -12px rgba(24,52,31,.35),0 0 0 1px rgba(24,52,31,.08)}
+.brand{font:800 1.12rem/1 var(--disp);color:var(--forest);white-space:nowrap}
+header nav{display:flex;gap:.2rem}header nav a{font-size:.9rem;font-weight:500;padding:.55rem .85rem;border-radius:999px;transition:background .25s}header nav a:hover{background:rgba(93,128,72,.18)}
+.call{font-weight:700;font-size:.9rem;padding:.75rem 1.1rem;border-radius:999px;background:var(--forest);color:var(--cream);white-space:nowrap;transition:background .25s}.call:hover{background:var(--rust)}
+/* hero */
+.hero{position:relative;height:100svh;min-height:640px;overflow:hidden;background:linear-gradient(#f7c98b 0%,#fbdcae 34%,#fdeccd 62%,#fbf3e2 100%)}
+.sun{position:absolute;left:50%;top:44%;width:min(46vw,460px);aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,#fff6d6 0%,#ffd98a 45%,#f7a94a 100%);box-shadow:0 0 140px 60px rgba(255,214,140,.7);animation:sunup 2.4s cubic-bezier(.2,.7,.2,1) both}
+@keyframes sunup{from{top:78%;opacity:.4}}
+.layer{position:absolute;left:-4%;width:108%;bottom:0;will-change:transform}
+.layer svg{display:block;width:100%;height:auto}
+.hero-in{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:90px 16px 22vh}
+.pill{display:inline-flex;align-items:center;gap:.6rem;font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--forest);background:rgba(251,243,226,.7);padding:.55rem 1rem;border-radius:999px}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--rust)}
+.hero h1{margin:1.2rem 0 .6rem;font:800 clamp(2.9rem,9vw,7.6rem)/.95 var(--disp);letter-spacing:-.03em;color:var(--forest);text-wrap:balance}
+.hero h1 em{font-weight:400;font-style:italic;color:var(--rust)}
+.sub{font:italic 600 clamp(1.25rem,2.6vw,1.9rem)/1.2 var(--disp);color:var(--pine);margin:0 0 2rem}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center}
+.btn{font-weight:700;padding:1.05rem 1.7rem;border-radius:999px;background:var(--forest);color:var(--cream);box-shadow:0 14px 30px -12px rgba(24,52,31,.7);transition:transform .3s cubic-bezier(.2,1.4,.4,1),background .25s;border:0;cursor:pointer;font-family:inherit;font-size:1rem}
+.btn:hover{transform:translateY(-4px) scale(1.03);background:var(--rust)}
+.btn.w{background:var(--cream);color:var(--forest)}.btn.w:hover{background:#fff}
+.hero-in>*{animation:up 1.1s cubic-bezier(.2,.7,.2,1) both}.hero-in>:nth-child(2){animation-delay:.12s}.hero-in>:nth-child(3){animation-delay:.24s}.hero-in>:nth-child(4){animation-delay:.36s}
+@keyframes up{from{opacity:0;transform:translateY(30px)}}
+/* sections */
+.green{background:var(--forest);color:var(--cream)}
+section.blk{padding:clamp(4rem,9vw,7.5rem) 0;position:relative}
+.eyebrow{font-size:.82rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rust)}.green .eyebrow{color:var(--amber)}
+h2{margin:.6rem 0 .8rem;font:800 clamp(2.2rem,5.4vw,4.2rem)/1 var(--disp);letter-spacing:-.025em}h2 em{font-weight:400;font-style:italic}
+.lead{margin:0;max-width:34rem;color:var(--soft);font-size:1.15rem}.green .lead{color:var(--sage)}
+.center{text-align:center}.center .lead{margin-inline:auto}
+.about{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(2rem,6vw,5rem);align-items:center}
+.about p.big{font:400 clamp(1.25rem,2.2vw,1.6rem)/1.5 var(--disp);color:var(--cream);margin:1rem 0 0}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.stat{border-radius:28px;padding:1.8rem 1.4rem;background:var(--pine)}
+.stat:nth-child(2){background:var(--amber);color:var(--forest);transform:translateY(1.4rem) rotate(2deg)}
+.stat b{display:block;font:800 clamp(3rem,6.6vw,5.2rem)/1 var(--disp);letter-spacing:-.03em}.stat span{font-weight:500}
+.revs{grid-column:1/-1;margin-top:1.4rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;border-radius:999px;padding:1rem 1.5rem;background:var(--cream);color:var(--forest);font-weight:700;transition:transform .3s cubic-bezier(.2,1.4,.4,1)}
+.revs:hover{transform:scale(1.03)}.revs i{font-style:normal;color:var(--amber);letter-spacing:.12em}
+.wave{display:block;width:100%;height:auto;margin-bottom:-1px}
+/* services */
+.svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem;margin-top:clamp(2rem,4vw,3.2rem)}
+.svc article{border-radius:30px;padding:2rem 1.7rem;background:#fff;box-shadow:0 1px 0 rgba(24,52,31,.06),0 22px 44px -28px rgba(24,52,31,.4);transition:transform .45s cubic-bezier(.2,1.2,.4,1),background .35s,color .35s}
+.svc article:hover{transform:translateY(-10px) rotate(-1.2deg);background:var(--forest);color:var(--cream)}
+.svc article:nth-child(even):hover{transform:translateY(-10px) rotate(1.2deg)}
+.svc .ic{width:62px;height:62px;border-radius:20px;display:grid;place-items:center;background:var(--sand);color:var(--pine);margin-bottom:1.4rem;transition:.35s}
+.svc article:nth-child(3n+2) .ic{background:#f8d9a6;color:var(--rust)}.svc article:nth-child(3n) .ic{background:#d7e4c3}
+.svc article:hover .ic{background:var(--amber);color:var(--forest);transform:rotate(-8deg)}
+.svc svg{width:30px;height:30px}
+.svc h3{margin:0 0 .4rem;font:800 1.5rem/1.15 var(--disp);letter-spacing:-.01em}.svc p{margin:0;opacity:.75}
+/* coverage */
+.sand{background:var(--sand)}
+.finder{max-width:760px;margin:clamp(1.8rem,4vw,2.8rem) auto 0;display:flex;gap:.5rem;padding:.5rem;border-radius:999px;background:#fff;box-shadow:0 24px 50px -24px rgba(24,52,31,.5);transition:box-shadow .3s}
+.finder:focus-within{box-shadow:0 24px 50px -20px rgba(24,52,31,.6),0 0 0 4px rgba(230,154,46,.45)}
+.finder svg{width:24px;height:24px;align-self:center;margin-left:1rem;color:var(--moss);flex:none}
+.finder input{flex:1;min-width:0;border:0;outline:0;background:none;font:500 clamp(1rem,2.2vw,1.2rem)/1 var(--body);color:var(--ink);padding:.9rem .4rem}
+#cvResult{max-width:760px;margin:1.2rem auto 0;border-radius:28px;padding:1.2rem 1.5rem;display:grid;grid-template-columns:auto 1fr;gap:.1rem 1rem;align-items:center;min-height:5.4rem;transition:background .4s,color .4s}
+#cvResult.is-idle{text-align:center;grid-template-columns:1fr;color:var(--soft)}
+#cvResult.is-yes{background:var(--forest);color:var(--cream)}#cvResult.is-no{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 2px var(--rust)}
+.cv-badge{grid-row:1/3;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-size:0}.cv-badge:empty{display:none}
+.is-yes .cv-badge{background:var(--amber)}.is-yes .cv-badge::after{content:"✓";font-size:1.7rem;font-weight:700;color:var(--forest)}
+.is-no .cv-badge{background:var(--rust)}.is-no .cv-badge::after{content:"?";font-size:1.7rem;font-weight:700;color:#fff}
+.is-yes .cv-badge,.is-no .cv-badge{animation:pop .5s cubic-bezier(.2,1.6,.4,1) both}@keyframes pop{from{transform:scale(0) rotate(-40deg)}}
+.cv-title{font:800 clamp(1.1rem,2.2vw,1.45rem)/1.25 var(--disp)}.is-idle .cv-title{font:500 1rem/1.4 var(--body)}
+.cv-detail{opacity:.8;font-size:.98rem}.cv-detail:empty{display:none}
+#cvList{margin-top:clamp(2.2rem,5vw,3.6rem);display:grid;gap:2.2rem}
+.cv-county-name{margin:0 0 1rem;display:flex;align-items:center;gap:.8rem;font:800 1.7rem/1 var(--disp);color:var(--forest)}
+.cv-count{font:700 .8rem/1 var(--body);background:var(--forest);color:var(--cream);padding:.4rem .7rem;border-radius:999px}
+.cv-towns{display:flex;flex-wrap:wrap;gap:.55rem}
+.cv-town{width:auto;display:flex;align-items:center;gap:.6rem;padding:.6rem .65rem .6rem 1rem;border-radius:999px;background:var(--cream);font-weight:500;box-shadow:0 2px 0 rgba(24,52,31,.12);transition:transform .3s cubic-bezier(.2,1.5,.4,1),background .25s,color .25s,opacity .3s}
+.cv-zip{font-size:.78rem;font-weight:700;padding:.3rem .55rem;border-radius:999px;background:var(--sand);color:var(--pine)}
+.cv-town:hover{transform:translateY(-3px) rotate(-1.5deg);background:#fff}
+.cv-town.is-hit{background:var(--forest);color:var(--cream);transform:scale(1.06)}.cv-town.is-hit .cv-zip{background:var(--amber);color:var(--forest)}
+.cv-town.is-dim{opacity:.3}
+/* contact + pay */
+.contact{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem;margin-top:clamp(2rem,4vw,3rem)}
+.tile{border-radius:30px;padding:2rem 1.7rem;background:var(--pine);display:flex;flex-direction:column;gap:.5rem;transition:transform .4s cubic-bezier(.2,1.2,.4,1),background .3s}
+a.tile:hover{transform:translateY(-8px);background:#2d6339}
+.tile small{font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);font-size:.76rem}
+.tile b{font:800 clamp(1.15rem,2vw,1.5rem)/1.25 var(--disp);word-break:break-word}
+.pay{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem;margin-top:clamp(2rem,4vw,3rem)}
+.pay a{border-radius:30px;padding:2rem 1.7rem;background:#fff;display:flex;flex-direction:column;box-shadow:0 22px 44px -28px rgba(24,52,31,.4);transition:transform .45s cubic-bezier(.2,1.2,.4,1)}
+.pay a:hover{transform:translateY(-10px)}.pay h3{margin:0 0 .4rem;font:800 1.45rem/1.15 var(--disp)}.pay p{margin:0 0 1.4rem;color:var(--soft);flex:1}
+.pay span{align-self:start;font-weight:700;padding:.75rem 1.1rem;border-radius:999px;background:var(--sand);color:var(--forest);transition:.25s}.pay a:hover span{background:var(--forest);color:var(--cream)}
+.note{max-width:640px;margin:2rem auto 0;text-align:center;padding:1rem 1.4rem;border-radius:20px;background:#f8d9a6;color:var(--forest);font-weight:500}
+footer{background:var(--forest);color:var(--sage);padding:0 0 5.5rem}
+footer .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2rem;padding-top:1rem}
+footer h4{margin:0 0 .7rem;color:var(--amber);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
+footer a{display:block}footer a:hover{color:var(--cream)}footer .brand{color:var(--cream);font-size:1.6rem}
+.end{grid-column:1/-1;border-top:1px solid rgba(169,191,140,.25);padding-top:1.4rem;font-size:.9rem}
+@media (max-width:900px){header nav{display:none}.about{grid-template-columns:1fr}.svc,.contact,.pay{grid-template-columns:1fr 1fr}footer .wrap{grid-template-columns:1fr}}
+@media (max-width:600px){.svc,.contact,.pay{grid-template-columns:1fr}.finder .btn{padding:.9rem 1.1rem}.finder svg{display:none}.finder input{padding-left:1rem}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body id="top">
+<header><a class="brand" href="#top">Here To Serve, LLC</a>
+  <nav aria-label="Sections"><a href="#top">Home</a><a href="#services">Services</a><a href="#coverage">Coverage Area</a><a href="#contact">Contact</a><a href="#pay">Pay Online</a></nav>
+  <a class="call" href="tel:607-434-2052">(607) 434-2052</a></header>
+
+<section class="hero">
+  <div class="sun" aria-hidden="true"></div>
+  <div class="layer" data-speed=".12" aria-hidden="true"><svg viewBox="0 0 1440 420" preserveAspectRatio="none"><path fill="#c9d6b0" d="M0 240c120-70 230-90 340-50s190 40 300-20 220-110 360-60 240 90 440 10V420H0z"/></svg></div>
+  <div class="layer" data-speed=".22" aria-hidden="true"><svg viewBox="0 0 1440 340" preserveAspectRatio="none"><path fill="#8fae78" d="M0 200c160-90 300-70 430-20s240 30 370-40 260-60 380 0 180 50 260 20V340H0z"/></svg></div>
+  <div class="layer" data-speed=".36" aria-hidden="true"><svg viewBox="0 0 1440 260" preserveAspectRatio="none"><path fill="#4d7a45" d="M0 150c140-60 260-80 420-30s300 60 440 0 300-80 580-10V260H0z"/>
+    <g fill="#2f5a34"><path d="M180 128l14-44 14 44zM214 132l11-34 11 34zM1100 96l15-48 15 48zM1136 102l11-36 11 36zM1168 100l9-28 9 28zM620 150l12-38 12 38z"/></g></svg></div>
+  <div class="layer" data-speed=".5" aria-hidden="true"><svg viewBox="0 0 1440 170" preserveAspectRatio="none"><path fill="#18341f" d="M0 90c200-70 380-50 560-10s330 40 480-10 260-50 400 10V170H0z"/>
+    <path d="M-20 150C260 60 520 150 760 96s420-30 700 20" fill="none" stroke="#e69a2e" stroke-width="3" stroke-dasharray="14 14" opacity=".9"/></svg></div>
+  <div class="hero-in">
+    <span class="pill"><i></i><span id="pillText">Serving Otsego, Delaware &amp; Chenango Counties</span></span>
+    <h1>Professional <em>Process</em> Serving</h1>
+    <p class="sub">Experienced, Dependable, Prompt</p>
+    <div class="btns"><a class="btn" href="#contact">Request Service</a><a class="btn w" href="tel:607-434-2052">Call Now: (607) 434-2052</a></div>
+  </div>
+</section>
+
+<section class="blk green" id="about"><div class="wrap about">
+  <div data-reveal><div class="eyebrow">About</div><h2>Your Trusted Partner in <em>Legal Support</em></h2>
+    <p class="big">When you need legal documents served accurately and on time, trust Here To Serve, LLC. I combine deep industry knowledge, the latest technologies including GPS stamped photos, and a commitment to client satisfaction.</p></div>
+  <div class="stats" data-reveal style="--d:.15s">
+    <div class="stat"><b data-count="20" data-suffix="+">20+</b><span>Years of Experience</span></div>
+    <div class="stat"><b data-count="60" data-suffix="k+">60k+</b><span>Papers Served</span></div>
+    <a class="revs" href="https://www.google.com/search?q=Here+To+Serve,+LLC+Reviews" target="_blank" rel="noopener"><span>Check Out My Reviews</span><i>★★★★★</i></a>
+  </div>
+</div></section>
+<svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path fill="#18341f" d="M0 0h1440v20c-220 70-420 60-700 20S260 0 0 50z"/></svg>
+
+<section class="blk" id="services"><div class="wrap">
+  <div class="center" data-reveal><div class="eyebrow">Services Offered</div><h2>My <em>Services</em></h2><p class="lead">Comprehensive solutions for your legal document needs — a full range of process serving and legal support services.</p></div>
+  <div class="svc" id="svc">
+    <article data-reveal style="--d:0s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></svg></div><h3>Process Service</h3><p>Routine, rush, and same-day when available.</p></article>
+    <article data-reveal style="--d:0.1s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M12 10v6m-3-3 3 3 3-3"/></svg></div><h3>Document Retrieval</h3><p>Pickup and delivery of court and agency documents.</p></article>
+    <article data-reveal style="--d:0.2s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V10m4 11V10m6 11V10m4 11V10M2 10l10-7 10 7z"/></svg></div><h3>Court Filings</h3><p>File submissions at local courts as needed.</p></article>
+    <article data-reveal style="--d:0s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div><h3>Court Record Searches</h3><p>Locate and retrieve case records where accessible.</p></article>
+    <article data-reveal style="--d:0.1s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6l-1 6 4 4H6l4-4z"/><path d="M12 13v8"/></svg></div><h3>Posting Notices of Sale</h3><p>Posting per instruction and proof with photo.</p></article>
+    <article data-reveal style="--d:0.2s"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 12 3l9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></div><h3>Occupancy Inspections</h3><p>Basic occupancy checks with GPS-stamped photos.</p></article>
+  </div>
+</div></section>
+
+<section class="blk sand" id="coverage"><div class="wrap">
+  <div class="center" data-reveal><div class="eyebrow">Am I in your neck of the woods?</div><h2>My <em>Coverage Area</em></h2><p class="lead">I proudly serve the following counties, towns, and municipalities.</p></div>
+  <form class="finder" id="cvForm" data-reveal>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+    <input id="cvInput" type="search" autocomplete="off" spellcheck="false" placeholder="Search by town, county, or zip code..." aria-label="Search by town, county, or zip code">
+    <button class="btn" type="submit">Search</button>
+  </form>
+  <div id="cvResult"></div>
+  <div id="cvList" data-reveal></div>
+</div></section>
+
+<section class="blk green" id="contact"><div class="wrap">
+  <div class="center" data-reveal><div class="eyebrow">Say hello</div><h2>Contact <em>Me</em></h2><p class="lead">Ready to get started? Reach out today for a free consultation.</p></div>
+  <div class="contact">
+    <a class="tile" data-reveal href="tel:607-434-2052"><small>Direct Contact</small><b>(607) 434-2052</b></a>
+    <a class="tile" data-reveal style="--d:.1s" href="mailto:info@hereserve.com"><small>Direct Contact</small><b>info@hereserve.com</b></a>
+    <div class="tile" data-reveal style="--d:.2s"><small>Mailing Address</small><b>7 Valleyview Street, Oneonta NY 13820</b></div>
+  </div>
+</div></section>
+
+<section class="blk" id="pay"><div class="wrap">
+  <div class="center" data-reveal><div class="eyebrow">Settle up</div><h2>Pay <em>Online</em></h2><p class="lead">Securely pay your invoice using one of the options below.</p></div>
+  <div class="pay">
+    <a data-reveal href="https://www.paypal.com/paypalme/hereserve" target="_blank" rel="noopener"><h3>Pay with PayPal</h3><p>Click here to pay your invoice securely through the PayPal platform.</p><span>Proceed to PayPal →</span></a>
+    <a data-reveal style="--d:.1s" href="https://account.venmo.com/u/hereserve" target="_blank" rel="noopener"><h3>Pay with Venmo</h3><p>Pay directly from your phone using the Venmo app.</p><span>Open Venmo →</span></a>
+    <a data-reveal style="--d:.2s" href="tel:607-434-2052"><h3>Pay by Debit/Credit</h3><p>To pay by Credit Card over the phone, please call me at (607) 434-2052.</p><span>Call (607) 434-2052 →</span></a>
+  </div>
+  <p class="note" data-reveal>Please ensure you include your invoice number in the payment description or notes field.</p>
+</div></section>
+
+<svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path fill="#18341f" d="M0 80h1440V40c-240-60-460-40-720 0S240 80 0 20z"/></svg>
+<footer><div class="wrap">
+  <div><div class="brand">Here To Serve, LLC</div><p>Experienced, Dependable, Prompt</p></div>
+  <div><h4>Quick Links</h4><a href="#top">Home</a><a href="#services">Services</a><a href="#coverage">Coverage Area</a><a href="#contact">Contact</a><a href="#pay">Pay Online</a></div>
+  <div><h4>Contact Me</h4>7 Valleyview Street, Oneonta NY 13820<a href="tel:607-434-2052">(607) 434-2052</a><a href="mailto:info@hereserve.com">info@hereserve.com</a></div>
+  <div class="end">© 2026 Here To Serve, LLC. All Rights Reserved.</div>
+</div></footer>
+<!-- Towns and ZIP codes live in coverage-config.js (same folder as this file). -->
+<script src="coverage-config.js"></script>
+<script>
+/* ---------- Coverage search (reads coverage-config.js) ---------- */
+(function () {
+  var PHONE = '(607) 434-2052';
+  var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var norm = function (s) { return String(s || '').toLowerCase().replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim(); };
+  var lev = function (a, b) {
+    var d = [], i, j;
+    for (i = 0; i <= a.length; i++) d[i] = [i];
+    for (j = 1; j <= b.length; j++) d[0][j] = j;
+    for (i = 1; i <= a.length; i++) for (j = 1; j <= b.length; j++)
+      d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    return d[a.length][b.length];
+  };
+
+  /* Parse the config sheet: "County, Town, ZIP" per line (commas or tabs). */
+  var counties = [], towns = [], byName = {};
+  String(window.HTS_COVERAGE || '').split(/\r?\n/).forEach(function (line) {
+    line = line.trim();
+    if (!line || line.charAt(0) === '#' || line.indexOf('//') === 0) return;
+    var c = line.split(/\t|,/).map(function (x) { return x.trim(); });
+    if (c.length < 3 || !c[0] || !c[1] || !c[2] || /^county$/i.test(c[0])) return;
+    var county = byName[c[0].toLowerCase()];
+    if (!county) { county = byName[c[0].toLowerCase()] = { name: c[0], towns: [] }; counties.push(county); }
+    var t = { name: c[1], zip: c[2], county: county.name, key: county.name + '|' + c[1] + '|' + c[2] };
+    county.towns.push(t); towns.push(t);
+  });
+  var shortName = function (n) { return norm(n).replace(/ county$/, ''); };
+
+  function search(query) {
+    var q = norm(query).replace(/ ?\b(ny|new york)$/, '').trim() || norm(query);
+    if (!q) return { q: '', idle: true, hits: [] };
+    var isZip = /^\d+$/.test(q), qc = q.replace(/ ?\b(county|co)$/, '').trim();
+    var countyHit = !isZip && counties.filter(function (c) { return qc.length >= 3 && shortName(c.name).indexOf(qc) === 0; })[0];
+    var hits = towns.filter(function (t) { return isZip ? t.zip.indexOf(q) === 0 : (norm(t.name).indexOf(q) > -1 || (countyHit && t.county === countyHit.name)); });
+    var exact = isZip ? [] : hits.filter(function (t) { return norm(t.name) === q; });
+    if (exact.length) hits = exact;
+    var suggest = null;
+    if (!hits.length && !isZip && q.length >= 3) {
+      var best = 3;
+      counties.map(function (c) { return c.name; }).concat(towns.map(function (t) { return t.name; })).forEach(function (n) {
+        var d = lev(qc || q, shortName(n)); if (d < best) { best = d; suggest = n; }
+      });
+    }
+    var places = hits.map(function (t) { return t.name; }).filter(function (n, i, a) { return a.indexOf(n) === i; });
+    var r = { q: q, raw: String(query).trim(), hits: hits, covered: hits.length > 0, idle: false };
+    if (!r.covered) {
+      r.title = '\u201C' + r.raw + '\u201D isn\u2019t on my coverage list';
+      r.detail = (suggest ? 'Did you mean ' + suggest + '? ' : '') + 'Call ' + PHONE + ' to ask about your location.';
+    } else if (countyHit && hits.every(function (t) { return t.county === countyHit.name; }) && !places.some(function (p) { return norm(p) === q; })) {
+      r.title = 'Yes \u2014 I serve ' + countyHit.name;
+      r.detail = hits.length + (hits.length === 1 ? ' community covered: ' : ' communities covered: ') + places.join(', ') + '.';
+    } else if (places.length === 1) {
+      var cs = hits.map(function (h) { return h.county; }).filter(function (n, i, a) { return a.indexOf(n) === i; }).join(' & ');
+      var zips = hits.map(function (h) { return h.zip; }).filter(function (n, i, a) { return a.indexOf(n) === i; }).join(' / ');
+      r.title = 'Yes \u2014 ' + hits[0].name + ', NY ' + zips + ' is covered';
+      r.detail = cs + '. Call ' + PHONE + ' to request service.';
+    } else {
+      r.title = 'Yes \u2014 ' + places.length + ' covered areas match' + (isZip ? ' ZIP ' + r.raw : '');
+      r.detail = places.join(', ') + '.';
+    }
+    return r;
+  }
+
+  function mountCoverage(o) {
+    var $ = function (s) { return document.querySelector(s); };
+    var form = $(o.form), input = $(o.input), result = $(o.result), list = $(o.list);
+    if (!towns.length) {
+      list.innerHTML = '<p class="cv-empty">The coverage list could not be loaded. Please call ' + PHONE + ' to check your area.</p>';
+    } else {
+      list.innerHTML = counties.map(function (c) {
+        return '<section class="cv-county"><h3 class="cv-county-name">' + esc(c.name) + ' <span class="cv-count">' + c.towns.length + '</span></h3><ul class="cv-towns">' +
+          c.towns.map(function (t) { return '<li><button type="button" class="cv-town" data-key="' + esc(t.key) + '" data-name="' + esc(t.name) + '"><span class="cv-name">' + esc(t.name) + '</span><span class="cv-zip">' + esc(t.zip) + '</span></button></li>'; }).join('') +
+          '</ul></section>';
+      }).join('');
+    }
+    list.addEventListener('click', function (e) { var b = e.target.closest('.cv-town'); if (b) { input.value = b.dataset.name; run(); } });
+    result.setAttribute('aria-live', 'polite');
+    function run() {
+      var r = search(input.value), keys = {};
+      r.hits.forEach(function (h) { keys[h.key] = 1; });
+      list.querySelectorAll('.cv-town').forEach(function (b) {
+        b.classList.toggle('is-hit', !r.idle && !!keys[b.dataset.key]);
+        b.classList.toggle('is-dim', !r.idle && !keys[b.dataset.key]);
+      });
+      result.className = r.idle ? 'is-idle' : r.covered ? 'is-yes' : 'is-no';
+      result.innerHTML = '<span class="cv-badge"></span><strong class="cv-title"></strong><span class="cv-detail"></span>';
+      result.children[0].textContent = r.idle ? '' : r.covered ? 'Covered' : 'Not listed';
+      result.children[1].textContent = r.idle ? 'Enter a town, county, or ZIP code to check coverage.' : r.title;
+      result.children[2].textContent = r.idle ? '' : r.detail;
+    }
+    input.addEventListener('input', run);
+    form.addEventListener('submit', function (e) { e.preventDefault(); run(); });
+    run();
+  }
+
+  /* scroll reveal + count-up numbers */
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches, hasIO = 'IntersectionObserver' in window;
+  document.documentElement.classList.add('js');
+  var els = document.querySelectorAll('[data-reveal]');
+  if (reduce || !hasIO) els.forEach(function (e) { e.classList.add('in'); });
+  else {
+    var io = new IntersectionObserver(function (en) { en.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    els.forEach(function (e) { io.observe(e); });
+  }
+  document.querySelectorAll('[data-count]').forEach(function (el) {
+    var end = +el.dataset.count, suf = el.dataset.suffix || '';
+    if (reduce || !hasIO) return;
+    el.textContent = '0' + suf;
+    var io2 = new IntersectionObserver(function (en) {
+      if (!en[0].isIntersecting) return; io2.disconnect();
+      var t0 = performance.now();
+      (function tick(now) { var p = Math.min(1, (now - t0) / 1500); el.textContent = Math.round(end * (1 - Math.pow(1 - p, 4))) + suf; if (p < 1) requestAnimationFrame(tick); })(t0);
+    }, { threshold: 0.5 });
+    io2.observe(el);
+  });
+
+  window.HTS = { counties: counties, towns: towns, search: search, mountCoverage: mountCoverage };
+})();
+
+/* hero badge follows the counties in the config */
+(function () { var el = document.getElementById('pillText'), n = HTS.counties.map(function (c) { return c.name.replace(/ county$/i, ''); });
+  if (el && n.length) el.textContent = 'Serving ' + (n.length > 1 ? n.slice(0, -1).join(', ') + ' & ' + n[n.length - 1] + ' Counties' : n[0] + ' County'); })();
+HTS.mountCoverage({ form: '#cvForm', input: '#cvInput', result: '#cvResult', list: '#cvList' });
+/* parallax hills */
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const layers = [...document.querySelectorAll('.layer')], sun = document.querySelector('.sun'); let tick = false;
+  addEventListener('scroll', () => { if (tick) return; tick = true; requestAnimationFrame(() => { const y = Math.min(scrollY, innerHeight);
+    layers.forEach((l) => l.style.transform = `translateY(${y * (0.55 - l.dataset.speed)}px)`); sun.style.translate = `0 ${y * .25}px`; tick = false; }); }, { passive: true });
+}
+</script>
+</body>
+</html>
